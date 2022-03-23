@@ -4,12 +4,7 @@ const nextConfig = {
   basePath: process.env.BASE_PATH || '',
   images: {
     domains: ['tailwindui.com'],
-  },
-  experimental: {
-    images: {
-      layoutRaw: true,
-    },
-  },
+  }
 }
 
 module.exports = nextConfig

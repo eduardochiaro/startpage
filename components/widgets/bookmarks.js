@@ -33,28 +33,30 @@ const Bookmarks = ({ size = 1 }) => {
 
   return (
   <div className={`rounded bg-white drop-shadow p-6 col-span-${size}`}>
-    <h2 className="text-2xl">Bookmarks</h2>
-    <form className="w-full">
-      <div className="flex items-center border-b border-sky-500 py-2">
-        <input 
-          className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" 
-          type="url" 
-          placeholder="Url" 
-          aria-label="Url"
-          onChange={ (event) => setInputNew(event.target.value) }
-          value={ inputNew }
-          required
-          />
-        <button 
-          className="flex-shrink-0 bg-sky-500 hover:bg-sky-700 border-sky-500 hover:border-sky-700 text-sm border-4 text-white py-1 px-2 rounded" 
-          type="button"
-          onClick={ () => grabBookmark() }
-          >
-          <PlusIcon className="h-4 inline-block text-grey-500 hover:text-grey-900"/>
-        </button>
-      </div>
-    </form>
-    <div className="mt-4 relative grid gap-6 sm:gap-8">
+    <details>
+      <summary> <h2 className="text-2xl inline-block">Bookmarks</h2></summary>
+      <form className="w-full">
+        <div className="flex items-center border-4 rounded-xl border-sky-500 py-2 mt-4">
+          <input 
+            className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" 
+            type="url" 
+            placeholder="Url" 
+            aria-label="Url"
+            onChange={ (event) => setInputNew(event.target.value) }
+            value={ inputNew }
+            required
+            />
+          <button 
+            className="flex-shrink-0 text-sm text-white py-1 px-2 rounded" 
+            type="button"
+            onClick={ () => grabBookmark() }
+            >
+            <PlusIcon className="h-6 inline-block text-sky-500 hover:text-sky-800"/>
+          </button>
+        </div>
+      </form>
+    </details>
+    <div className="mt-4 relative grid gap-6 sm:gap-8 border-t pt-4">
       { bookmarks?.map((item, key) => 
         <Link
           key={ key } 
