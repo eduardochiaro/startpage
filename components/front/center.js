@@ -8,7 +8,6 @@ const Center = () => {
   useEffect(() => {
     function checkUserData() {
       const settings = getFromStorage("settings");
-  
       if (settings) {
         setBackground(settings?.background || "/images/bgs/bg-1.jpg");
       }

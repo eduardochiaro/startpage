@@ -1,7 +1,10 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
-  ChevronDownIcon,
+  CogIcon,
+} from '@heroicons/react/solid'
+import {
+  PhotographIcon,
 } from '@heroicons/react/outline'
 import Image from 'next/image'
 import { getFromStorage, setToStorage } from '../../utils/localStorage'
@@ -48,47 +51,40 @@ const header = () => {
             </a>
           </div>
           <nav className="hidden md:flex space-x-10">
-            <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
-              Pricing
-            </a>
 
             <Popover className="relative">
-              <>
-                <Popover.Button className="text-base font-medium text-gray-500 hover:text-gray-900">
-                  Options 
-                  <ChevronDownIcon
-                    className="w-5 h-5 ml-2 -mr-1 inline-block"
-                    aria-hidden="true"
-                  />
-                </Popover.Button>
-
-                <Transition
-                  as={Fragment}
-                  enter="transition ease-out duration-100"
-                  enterFrom="transform opacity-0 scale-95"
-                  enterTo="transform opacity-100 scale-100"
-                  leave="transition ease-in duration-75"
-                  leaveFrom="transform opacity-100 scale-100"
-                  leaveTo="transform opacity-0 scale-95"
-                >
-                  <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 mt-3 transform right-0 sm:px-0 lg:max-w-xl text-gray-900">
-                    <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white  p-7">
-                      <h4 className="mb-3 font-bold">Settings</h4>
-                      <hr/>
-                      <h5 className="my-3">Select Background</h5>
-                      <div className="relative grid gap-8 lg:grid-cols-6">
-                        {bgImages.map(image => (
-                          <div 
-                            key={image}
-                            onClick={ () => changeBackground(image)}
-                            className={`rounded-lg h-10 bg-cover bg-center border-2 cursor-pointer ${background == image ? 'border-sky-500' : 'border-gray-300'}`} style={{ backgroundImage: `url("${image}")`}}>
-                          </div>
-                        )) }
-                      </div>
+              <Popover.Button className="text-base font-medium text-gray-700 hover:text-sky-600">
+                <CogIcon className="w-6 h-6 inline-block"/> 
+              </Popover.Button>
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 mt-3 transform right-0 sm:px-0 lg:max-w-xl text-gray-900">
+                  <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white  p-7">
+                    <h4 className="mb-3 font-bold">Settings</h4>
+                    <hr/>
+                    <h5 className="my-3">
+                      <PhotographIcon className="h-6 align-top inline-block mr-2" />
+                      Select Background
+                    </h5>
+                    <div className="relative grid gap-8 lg:grid-cols-6">
+                      {bgImages.map(image => (
+                        <div 
+                          key={image}
+                          onClick={ () => changeBackground(image)}
+                          className={`rounded-lg h-10 bg-cover bg-center border-4 cursor-pointer ${background == image ? 'border-sky-500' : 'border-gray-300'}`} style={{ backgroundImage: `url("${image}")`}}>
+                        </div>
+                      )) }
                     </div>
-                  </Popover.Panel>
-                </Transition>
-              </>
+                  </div>
+                </Popover.Panel>
+              </Transition>
             </Popover>
           </nav>
         </div>
