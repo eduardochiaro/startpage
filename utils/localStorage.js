@@ -10,6 +10,8 @@ const getFromStorage = (key) => {
 const setToStorage = (key, value) => {
   try {
     localStorage.setItem(key, JSON.stringify(value));
+    const event = new Event('itemInserted');
+    window.dispatchEvent(event);
   } catch (e) {
     console.log(e);
   }
