@@ -18,3 +18,10 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.widget-col-1 {
+  @apply col-span-1;
+}
+.widget-col-2 {
+  @apply col-span-2;
+}

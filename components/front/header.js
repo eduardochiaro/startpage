@@ -16,7 +16,7 @@ const bgImages = [
   '/images/bgs/bg-3.png'
 ]
 
-const header = () => {
+const Header = () => {
   const [background, setBackground] = useState("/images/bgs/bg-1.jpg");
 
   useEffect(() => {
@@ -93,4 +93,4 @@ const header = () => {
 
   )
 }
-export default header;
+export default Header;

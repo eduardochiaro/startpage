@@ -45,9 +45,11 @@ const Bookmarks = ({ size = 1 }) => {
   }
 
   return (
-  <div className={`rounded bg-white drop-shadow p-6 col-span-${size}`}>
+  <div className={`rounded bg-white drop-shadow p-6 widget-col-${size}`}>
     <details>
-      <summary className="cursor-pointer"><h2 className="text-2xl inline-block">Bookmarks</h2></summary>
+      <summary className="cursor-pointer">
+        <h2 className="text-2xl inline-block">Bookmarks</h2>
+      </summary>
       <form className="w-full">
         <div className="flex items-center border-4 rounded-xl border-sky-500 py-2 mt-4">
           <input 
@@ -70,7 +72,7 @@ const Bookmarks = ({ size = 1 }) => {
       </form>
     </details>
     <div className="mt-4 relative grid gap-6 sm:gap-8 border-t pt-4">
-      { bookmarks?.map((item, key) => 
+      { bookmarks?.map((item, key) => (
       <div className="-m-3 p-3 rounded-lg hover:bg-gray-50 relative" key={key}>
         <Link
           href={item.url}>
@@ -91,7 +93,7 @@ const Bookmarks = ({ size = 1 }) => {
             </a>
         </Link>
       </div>
-      ) }
+      )) }
     </div>
   </div>
   )
